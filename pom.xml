@@ -7,7 +7,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>Task_1</module>
+        <module>task_1</module>
     </modules>
 
     <properties>
@@ -34,19 +34,12 @@
             <artifactId>jcip-annotations</artifactId>
             <version>1.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/postgresql/postgresql -->
+        <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
         <dependency>
-            <groupId>postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>9.1-901.jdbc4</version>
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
+            <version>3.21.0.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.9-rc</version>
-        </dependency>
-
     </dependencies>
 
     <build>

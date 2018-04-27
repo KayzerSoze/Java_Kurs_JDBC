@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configDataBase>
+    <url urlDB="jdbc:postgresql://localhost:5432/Tracker">
+        <userID user="postgres" password="postgres"/>
+    </url>
+</configDataBase>

@@ -32,7 +32,7 @@ public class OptimizationUtilsTest {
         optimization.setSourseXslt(new File("src/main/resources/transform.xslt"));
         optimization.setUsername("");
         optimization.setPassword("");
-        optimization.setN(10);
+        optimization.setN(3_0);
     }
 
     /**

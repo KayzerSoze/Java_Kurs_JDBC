@@ -9,6 +9,8 @@
     <modules>
         <module>task_1</module>
         <module>tracker</module>
+        <module>dop_task1</module>
+        <module>dop_task2</module>
     </modules>
 
     <properties>

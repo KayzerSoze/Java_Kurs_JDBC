@@ -9,9 +9,7 @@ import java.util.Objects;
 /**
  * Created with IntelliJ IDEA.
  *
- * @author:Alex_Skorikov.
- * @date:20.04.18
- * @version:Java_Kurs_JDBC
+ * Created by AlexSkorikov on 29.04.18
  */
 public class Optimization implements Serializable {
     /**
@@ -200,9 +198,10 @@ public class Optimization implements Serializable {
      * @throws TransformerException exception
      */
     public void work() throws SQLException, TransformerException {
-        OptimizationUtils.createTable(this);
-        OptimizationUtils.createXML1(this);
-        OptimizationUtils.convertXML1ToXML2(this);
-        OptimizationUtils.parseXMLAndReturnResult(this);
+        OptimizationUtils utils = new OptimizationUtils();
+        utils.createTable(this);
+        utils.createXML1(this);
+        utils.convertXML1ToXML2(this);
+        utils.parseXMLAndReturnResult(this);
     }
 }

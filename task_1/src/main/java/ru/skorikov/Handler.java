@@ -11,7 +11,7 @@ import org.xml.sax.helpers.DefaultHandler;
  * @ date: 23.04.18
  * @ version: Java_Kurs_JDBC
  */
-public class MyHandler extends DefaultHandler {
+public class Handler extends DefaultHandler {
     /**
      * Rezalt.
      */

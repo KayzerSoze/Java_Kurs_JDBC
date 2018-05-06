@@ -34,10 +34,11 @@ import javax.xml.transform.Source;
 public class OptimizationUtils {
     /**
      * Create DataBase Table and insert Data.
+     *
      * @param optimization input parametr.
      * @throws SQLException exception
      */
-    public static void createTable(Optimization optimization) throws SQLException {
+    public void createTable(Optimization optimization) throws SQLException {
         Connection connection = null;
         Statement statement = null;
         PreparedStatement st = null;
@@ -59,11 +60,17 @@ public class OptimizationUtils {
             connection.commit();
         } catch (SQLException e) {
             System.out.println("DataBase problem " + e);
-            connection.rollback();
-        } finally {
             if (connection != null) {
+                connection.rollback();
+            }
+        } finally {
+            if (st != null) {
                 st.close();
+            }
+            if (statement != null) {
                 statement.close();
+            }
+            if (connection != null) {
                 connection.close();
             }
         }
@@ -72,11 +79,12 @@ public class OptimizationUtils {
     /**
      * Inner method.
      * Select Data from DataBase and create DataList.
+     *
      * @param optimization input parametr
      * @return DataList
      * @throws SQLException exception
      */
-    public static DataList selectFromDBforXML(Optimization optimization) throws SQLException {
+    public DataList selectFromDBforXML(Optimization optimization) throws SQLException {
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
@@ -98,11 +106,18 @@ public class OptimizationUtils {
             connection.rollback();
         } catch (SQLException e) {
             e.printStackTrace();
-            connection.rollback();
-        } finally {
             if (connection != null) {
+                connection.rollback();
+            }
+
+        } finally {
+            if (resultSet != null) {
                 resultSet.close();
+            }
+            if (statement != null) {
                 statement.close();
+            }
+            if (connection != null) {
                 connection.close();
             }
         }
@@ -111,10 +126,11 @@ public class OptimizationUtils {
 
     /**
      * Create XML1 from DataList.
+     *
      * @param optimization input param
      * @throws SQLException exception
      */
-    public static void createXML1(Optimization optimization) throws SQLException {
+    public void createXML1(Optimization optimization) throws SQLException {
         JAXBContext context;
         DataList dataList = selectFromDBforXML(optimization);
         try {
@@ -129,10 +145,11 @@ public class OptimizationUtils {
 
     /**
      * Convert XML2 from XML1.
+     *
      * @param optimization input param
      * @throws TransformerException exception
      */
-    public static void convertXML1ToXML2(Optimization optimization) throws TransformerException {
+    public void convertXML1ToXML2(Optimization optimization) throws TransformerException {
 
         TransformerFactory factory = TransformerFactory.newInstance();
         Source xslt = new StreamSource(new File(String.valueOf(optimization.getSoursexslt())));
@@ -144,22 +161,19 @@ public class OptimizationUtils {
 
     /**
      * Parse XML_2 and out rezalt.
+     *
      * @param optimization input param
      */
-    public static void parseXMLAndReturnResult(Optimization optimization) {
+    public void parseXMLAndReturnResult(Optimization optimization) {
         Long rezult = null;
         SAXParserFactory parserFactory = SAXParserFactory.newInstance();
-        MyHandler handler = new MyHandler();
+        Handler handler = new Handler();
         try {
             SAXParser parser = parserFactory.newSAXParser();
             parser.parse(new File(String.valueOf(optimization.getFile2())), handler);
             rezult = handler.getRezalt();
 
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ParserConfigurationException | IOException | SAXException e) {
             e.printStackTrace();
         }
         System.out.println(rezult);

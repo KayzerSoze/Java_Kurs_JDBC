@@ -40,8 +40,9 @@ public class OptimizationUtilsTest {
      */
     @Test
     public void tryCreateTable() {
+        OptimizationUtils utils = new OptimizationUtils();
         try {
-            OptimizationUtils.createTable(this.optimization);
+            utils.createTable(this.optimization);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -54,7 +55,8 @@ public class OptimizationUtilsTest {
      */
     @Test
     public void trySelectFromDBforXML() throws SQLException {
-        OptimizationUtils.selectFromDBforXML(this.optimization);
+        OptimizationUtils utils = new OptimizationUtils();
+        utils.selectFromDBforXML(this.optimization);
     }
 
     /**
@@ -64,7 +66,8 @@ public class OptimizationUtilsTest {
      */
     @Test
     public void tryCreateXML1() throws SQLException {
-        OptimizationUtils.createXML1(this.optimization);
+        OptimizationUtils utils = new OptimizationUtils();
+        utils.createXML1(this.optimization);
     }
 
     /**
@@ -74,7 +77,8 @@ public class OptimizationUtilsTest {
      */
     @Test
     public void tryConvertXML1ToXML2() throws TransformerException {
-        OptimizationUtils.convertXML1ToXML2(this.optimization);
+        OptimizationUtils utils = new OptimizationUtils();
+        utils.convertXML1ToXML2(this.optimization);
     }
 
     /**
@@ -82,7 +86,8 @@ public class OptimizationUtilsTest {
      */
     @Test
     public void tryParseXMLAndReturnResult() {
-        OptimizationUtils.parseXMLAndReturnResult(this.optimization);
+        OptimizationUtils utils = new OptimizationUtils();
+        utils.parseXMLAndReturnResult(this.optimization);
     }
 
     /**

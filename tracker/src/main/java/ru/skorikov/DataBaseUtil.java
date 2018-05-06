@@ -66,7 +66,7 @@ public class DataBaseUtil {
      */
     public void getParametresForConnect(Tracker tracker) {
         SAXParserFactory parserFactory = SAXParserFactory.newInstance();
-        MyHandler handler = new MyHandler();
+        Handler handler = new Handler();
         try {
             SAXParser parser = parserFactory.newSAXParser();
             try {

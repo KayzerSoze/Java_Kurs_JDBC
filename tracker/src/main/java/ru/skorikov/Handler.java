@@ -10,7 +10,7 @@ import org.xml.sax.helpers.DefaultHandler;
  * @author: Alex Skorikov.
  * @date: 26.04.18
  */
-public class MyHandler extends DefaultHandler {
+public class Handler extends DefaultHandler {
     /**
      * DataBase URL.
      */

@@ -1,0 +1,4 @@
+#connect to database
+url = jdbc:postgresql://localhost:5432/Vacancy
+user = postgres
+password = postgres

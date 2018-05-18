@@ -11,6 +11,7 @@
         <module>tracker</module>
         <module>dop_task1</module>
         <module>dop_task2</module>
+        <module>dop_task3</module>
     </modules>
 
     <properties>

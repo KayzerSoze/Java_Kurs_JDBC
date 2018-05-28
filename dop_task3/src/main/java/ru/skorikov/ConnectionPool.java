@@ -6,11 +6,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 /**
  * Created by AlexSkorikov on 18.05.18.
  */
-public class ConnectionPool {
-    /**
-     * Utils for Pool.
-     */
-    private DataBaseUtil util = new DataBaseUtil();
+class ConnectionPool {
 
     /**
      * ConnectionsPool.
@@ -20,7 +16,7 @@ public class ConnectionPool {
     /**
      * Constructor.
      */
-    ConnectionPool() {
+    private ConnectionPool() {
     }
 
     /**
@@ -38,7 +34,7 @@ public class ConnectionPool {
      *
      * @return instanse.
      */
-    public static ConnectionPool getInstance() {
+    static ConnectionPool getInstance() {
         return PollHolder.INSTANCE;
     }
 
@@ -47,22 +43,20 @@ public class ConnectionPool {
      *
      * @return connection.
      */
-    public Connection getConnectionFromPoll() {
+    Connection getConnection() {
         Connection connection = connectionsPool.poll();
         if (connection == null) {
-            connection = util.connectToDataBase();
+            connection = new ConnectionForPool().getConnection();
         }
         return connection;
     }
 
     /**
-     * Return connection to pool.
+     * Get connection pool.
      *
-     * @param connection connection.
+     * @return pool.
      */
-    public void returnConnectToPool(Connection connection) {
-        if (!connectionsPool.offer(connection)) {
-            util.closeQuietly(connection);
-        }
+    ArrayBlockingQueue<Connection> getConnectionsPool() {
+        return connectionsPool;
     }
 }

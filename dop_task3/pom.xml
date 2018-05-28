@@ -22,5 +22,10 @@
             <version>2.11.0</version>
             <type>pom</type>
         </dependency>
+        <dependency>
+            <groupId>ru.skorikov</groupId>
+            <artifactId>dop_task3</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 </project>

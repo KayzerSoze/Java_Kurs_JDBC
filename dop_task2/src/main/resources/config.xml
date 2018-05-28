@@ -4,9 +4,9 @@
     <password>postgres</password>
     <siteUrl>http://www.sql.ru/forum/job-offers</siteUrl>
     <!--Дата предыдущей загрузки-->
-    <previousTime>09 май 18, 11:35</previousTime>
+    <previousTime>18 май 18, 15:26</previousTime>
     <!--Дата следущей загрузки-->
-    <nextTime>10 май 18, 11:35</nextTime>
+    <nextTime>19 май 18, 15:26</nextTime>
     <!--частота запуска в днях-->
     <frequency>1</frequency>
 </config>
